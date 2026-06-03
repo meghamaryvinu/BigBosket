@@ -38,6 +38,16 @@ function updateWishlistCount() {
     countElements.forEach(element => {
         element.innerText = wishlist.length;
     });
+    
+    // If no elements found, try again after a short delay (header might still be loading)
+    if (countElements.length === 0) {
+        setTimeout(() => {
+            const retryElements = document.querySelectorAll('#wishlistCount');
+            retryElements.forEach(element => {
+                element.innerText = wishlist.length;
+            });
+        }, 200);
+    }
 }
 
 function toggleWishlist(product) {

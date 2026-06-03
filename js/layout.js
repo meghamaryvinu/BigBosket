@@ -50,6 +50,11 @@ async function loadHeader() {
         headerContainer.offsetHeight;
         
         updateCartCount();
+        
+        // Update wishlist count after header is loaded
+        if (typeof updateWishlistCount === 'function') {
+            updateWishlistCount();
+        }
     } catch (error) {
         console.error(error);
     }
