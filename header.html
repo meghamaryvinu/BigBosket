@@ -1,0 +1,39 @@
+<div class="header-wrapper">
+    <div class="top-bar">
+        <div>
+            Free Delivery on Orders Over $50!
+        </div>
+        <div>
+            <a href="#">Login / Register</a>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="public/logo.png" alt="Big Bosket Logo" style="height:40px; width: 100px;">
+            </a>    
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="recipes.html">Recipies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <ul class="nav-links">
+            <li><a href="#" onclick="toggleSearch()">🔍︎</a></li>
+            <li><a href="wishlist.html">ㅤ♡<span id="wishlistCount" style="background: #0c3321; color: white; border-radius: 50%; padding: 2px 6px; font-size: 14px; margin-left: 5px;">0</span></a></li>
+            <li><a href="Cart.html" onclick="updateGlobalCartCount()">🛒 <span id="cartCount" style="background: #0c3321; color: white; border-radius: 50%; padding: 2px 6px; font-size: 14px; margin-left: 5px;">0</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Search Box -->
+    <div id="searchBox" style="display: none; background: white; padding: 15px; border-bottom: 2px solid #0c3321;">
+        <div style="max-width: 600px; margin: 0 auto; display: flex; gap: 10px;">
+            <input type="text" id="searchInput" placeholder="Search products..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
+            <button onclick="searchProducts()" style="background: #1f4d3c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Search</button>
+            <button onclick="toggleSearch()" style="background: #ccc; color: black; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">✕</button>
+        </div>
+    </div> 
+</div>

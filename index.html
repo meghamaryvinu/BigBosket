@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Big Bosket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+        .hero{
+            display: grid;
+            grid-template-columns: 70% 30%;
+            min-height: calc(100vh - 150px);
+            padding: 0;
+            margin: 0;
+            gap: 0;
+        }
+
+        .hero-content h1, .hero-content h2, .hero-content .highlight{
+            margin: 0;
+        }
+
+        section{
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-image{
+            height: 100%;
+        }
+
+        .hero-image img{
+            width: 100%;
+            height: 85%;
+            object-fit: cover;
+            display: block;
+
+        }
+        .hero-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 40px;
+        }
+        .hero-content h1{
+            font-size: 2.5rem;
+            margin-bottom: 0;
+            line-height: 1.1;
+            color: #333;
+            font-weight: 400;
+        }
+
+        .hero-content h2{
+            font-size: 2.5rem;
+            margin-bottom: 0;
+            line-height: 1.1;
+            color: #333;
+            font-weight: 400;
+        }
+
+        .hero-content .highlight{
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .hero-logo{
+            max-width: 200px;
+            height: auto;
+            margin: 15px 0 20px;
+        }
+
+        .shop-btn{
+            background: #2d5a3d;
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .shop-btn:hover{
+            background: #1f4d3c;
+            transform: translateY(-2px);
+        }
+        .box{
+            background-color: #0c3321;
+            color: white;
+            display:flex;
+            justify-content:space-evenly;
+            align-items:center;
+            padding:15px;
+            margin: -107px 0 0 0;
+        }
+        @media (max-width: 1300px) {
+            .hero-content{
+                margin:0;
+                padding: 0;
+            }
+            .box {
+                margin-top: -60px;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .hero-content{
+                margin:0;
+                padding: 0;
+            }
+            .box {
+                margin-top: -30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content{
+                margin:0;
+                padding: 0;
+            }
+            .box {
+                margin-top: 10px;
+            }
+        }
+        @media (min-width: 769px) and (max-width: 1023px) {
+            .box {
+                gap: 20px;
+                padding: 10px;
+                margin: -70px 0 0 0;
+            }
+            .hero-content{
+                margin:0;
+                padding: 0;
+            }
+
+            .shop-btn{
+                margin: 0 0 100px 0;
+            }
+
+
+        }
+
+        @media (max-width: 768px){
+            .hero{
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-image{
+                height: 60vh;
+                order: 1;
+            }
+
+            .hero-content{
+                padding: 40px 20px;
+                order: 2;
+            }
+
+ 
+
+            .hero-logo{
+                max-width: 180px;
+            }
+
+            .shop-btn{
+                padding: 12px 40px;
+                font-size: 1rem;
+            }
+            .box{
+                margin: 10px;
+            }
+        }
+        
+        #productContainer{
+            display:flex;
+            justify-content:center;
+            gap:30px;
+            padding:40px;
+            flex-wrap:wrap;
+        }
+        .card{
+            width:280px;
+            background:white;
+            overflow:hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);            text-align:center;
+            transition:0.3s;
+        }
+        .card:hover{
+            transform:translateY(-8px);
+        }
+        .card img{
+            width:100%;
+            height:200px;
+
+            object-fit:cover;
+        }
+        .card h3{
+            margin:15px 0 10px;
+            font-size:24px;
+        }
+        .card p{
+            margin:10px 0;
+        }
+        .card .price{
+            color:#2e7d32;
+            font-size:22px;
+            font-weight:bold;
+        }
+        .card .rating{
+            color:#ffb300;
+            font-weight:bold;
+        }
+
+        .section2{
+            display:flex;
+            justify-content:center;
+            gap:100px;
+            padding:40px;
+        }
+    </style>
+</head>
+<body class="body">
+    <div id="header-container"></div>
+    <script src="js/search.js"></script>
+    <script src="js/wishlist-utils.js"></script>
+    <script src="js/cart-utils.js"></script>
+    <script src="js/layout.js"></script>
+    <section class="hero">
+            <div class="hero-image">
+        <img src=public/home.jpg alt="Stock-Image">
+    </div>
+
+    <div class="hero-content">
+        <h1>Nourish</h1>
+        <h2>Yourself with</h2>
+        <div class="highlight">Fresh Goodness</div>
+        <img src="public/logo.png" alt="Big Bosket Logo" class="hero-logo">
+        <button class="shop-btn" onclick="goToProducts()">Shop now</button>
+    </div>
+
+    </section>
+
+    <div class="box">
+            <span>✔ Vegan</span>
+            <span>✔ KETO-friendly</span>
+            <span>✔ Non-GMO</span>
+            <span>✔ Organic miso</span>
+            <span>✔ Gluten-Free</span>
+    </div>
+
+    <div class="section2" style="background-color: white;">
+
+        <div class="card">
+            <a href="about.html"><img src="public/story.jpg" alt="Our Story"></a>
+            <h3>Our Story</h3>
+        </div>
+
+        <div class="card">
+            <a href="recipe.html"><img src="public/recipe.jpg" alt="Recipes"></a>
+            <h3>Recipes</h3>
+        </div>
+
+    </div>
+
+    <h2 style="text-align:center; margin-top:40px;font-size: 2rem;
+            margin-bottom: 0;
+            line-height: 1.1;
+            color: #333;
+            font-weight: bold;">
+        Best Sellers
+    </h2>
+
+    <div id="productContainer"></div>        
+    <script src="js/products.js"></script>
+
+        <script>
+        const bestSellers = products.filter(
+            product => product.rating >= 4
+        );
+
+        displayProducts(bestSellers);
+
+        const ratingFilter = document.getElementById("ratingFilter");
+        const sortSelect = document.getElementById("sortSelect");
+        const categoryFilter = document.getElementById("categoryFilter");
+
+        if (ratingFilter) {
+            ratingFilter.addEventListener("change", function(){
+                const rating = Number(this.value);
+                const filtered = products.filter(product =>
+                    product.rating >= rating
+                );
+                displayProducts(filtered);
+            });
+        }
+
+        if (sortSelect) {
+            sortSelect.addEventListener("change", function(){
+                let sorted = [...products];
+                if(this.value === "low"){
+                    sorted.sort((a,b)=>a.price-b.price);
+                }
+                if(this.value === "high"){
+                    sorted.sort((a,b)=>b.price-a.price);
+                }
+                displayProducts(sorted);
+            });
+        }
+
+        if (categoryFilter) {
+            categoryFilter.addEventListener("change", function(){
+                const category = this.value;
+                if(category === "all"){
+                    displayProducts(products);
+                    return;
+                }
+                const filtered = products.filter(product =>
+                    product.category === category
+                );
+                displayProducts(filtered);
+            });
+        }
+        </script>
+
+    <section style="background: white; padding: 40px 20px; margin: 40px 0;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px;"
+                    src="https://www.youtube.com/embed/-98tE8X8gIg" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+        <div id="footer-container"></div>
+        <script src="js/layout.js"></script>
+
+<script>
+function goToProducts(){
+    window.location.href = "products.html";
+}
+</script>
+
+</body>
+</html>

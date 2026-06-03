@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View cart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .cart-item{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:20px;
+
+            background:white;
+
+            margin:20px 0;
+            padding:20px;
+
+            border-radius:10px;
+        }
+
+        .cart-item-left{
+            display:flex;
+            align-items:center;
+            gap:20px;
+        }
+
+        .cart-item-right{
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+        
+
+        .cart-item button{
+            width:35px;
+            height:35px;
+
+            border:none;
+            border-radius:5px;
+
+            cursor:pointer;
+        }
+
+        #totalBill{
+            text-align:right;
+            margin:20px;
+        }
+        button{
+            display:block;
+            margin-left:auto;
+            margin-right:20px;
+            padding:10px 20px;
+            background:#1f4d3c;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+
+        @media (max-width: 768px){
+            .cart-item{
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .cart-item-left{
+                width: 100%;
+            }
+
+            .cart-item-left img{
+                width: 80px;
+            }
+
+            .cart-item-right{
+                align-self: flex-end;
+            }
+
+            #totalBill{
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            button{
+                margin: 20px auto;
+                width: 200px;
+            }
+        }
+
+    </style>
+</head>
+<body class="body">
+    <div id="header-container"></div>
+    <script src="js/search.js"></script>
+    <script src="js/wishlist-utils.js"></script>
+    <script src="js/cart-utils.js"></script>
+    <script src="js/layout.js"></script>
+<h1 style="text-align:center; margin-top:40px;font-family: Verdana, Geneva, Tahoma, sans-serif;">
+    🛒 Your Cart
+</h1>
+<div id="cartItems" style="margin: 20px;padding: 10px;"></div>
+
+<h2 id="totalBill"></h2>
+
+<button id="confirmOrderBtn" onclick="confirmOrder()" style="display: none;">
+    Confirm Order
+</button>
+   <script src="js/cart.js"></script>
+</body>
+</html>

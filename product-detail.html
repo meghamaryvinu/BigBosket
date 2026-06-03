@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Detail</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: #f8f1ed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-container{
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        #productDetail{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .product-image{
+            padding: 0;
+            background: transparent;
+        }
+
+        .product-image img{
+            width: 100%;
+            height: auto;
+            max-width: 450px;
+            object-fit: cover;
+            border: 2px solid #bbb2b2;
+        }
+        .product-info{
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-info h1{
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 20px;
+            padding: 0;
+        }
+
+        .price-section{
+            margin-bottom: 20px;
+        }
+
+        .current-price{
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .stars{
+            color: #ffa726;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .product-details p{
+            margin: 5px 0;
+            color: #666;
+
+        }
+
+        .description{
+            color: #555;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .button-container{
+            display: flex;
+            gap: 15px;
+            
+        }
+
+        .btn{
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .btn-outline{
+            background: white;
+            color: #333;
+            border: 2px solid #ddd;
+        }
+
+        .btn-primary{
+            background: #1f4d3c;
+            color: white;
+        }
+
+        .btn-wishlist{
+            background: #e57373;
+            color: white;
+        }
+
+        .tabs-section{
+            margin-top: 40px;
+        }
+
+        .tab-buttons{
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            gap: 40px;
+        }
+
+        .tab-btn{
+            padding: 15px 0;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-btn.active{
+            color: #333;
+            border-bottom: 2px solid #333;
+        }
+
+        .tab-content{
+            padding: 30px 0;
+        }
+
+        .tab-pane{
+            display: none;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .tab-pane.active{
+            display: block;
+        }
+
+        .tab-pane h4{
+            color: #333;
+            margin: 20px 0 10px;
+            font-weight: 600;
+        }
+
+        .review{
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .review-header{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .review-stars{
+            color: #ffa726;
+        }
+
+        @media (max-width: 768px){
+            #productDetail{
+                flex-direction: column;
+                margin: 20px;
+            }
+            
+            .product-image, .product-info{
+                padding: 20px;
+            }
+            
+            .button-container{
+                flex-direction: column;
+            }
+
+            .tab-buttons{
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .tab-content{
+                padding: 20px 0;
+            }
+        }
+        .tabs{
+            display:flex;
+            justify-content:center;
+            gap:4rem;
+            font-weight:bold;
+        }
+
+    </style>
+</head>
+<body class="body">
+    <div id="header-container"></div>
+    <script src="js/search.js"></script>
+    <script src="js/wishlist-utils.js"></script>
+    <script src="js/cart-utils.js"></script>
+    <script src="js/layout.js"></script>
+
+    <div class="page-container" style="margin-top: 200px;">
+        <div id="productDetail"></div>
+        
+        
+        <div class="tabs-section">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="showTab('description')">Description</button>
+                <button class="tab-btn" onclick="showTab('reviews')">Reviews</button>
+                <button class="tab-btn" onclick="showTab('videos')">Videos</button>
+                <button class="tab-btn" onclick="showTab('comments')">Comments</button>
+            </div>
+    
+            
+            <div class="tab-content">
+                <div id="description" class="tab-pane active">
+                    <p>Fresh, high-quality <span id="productName1">product</span> sourced directly from trusted suppliers. Perfect for your daily cooking needs and special occasions.</p>
+                    
+                    <p>This premium <span id="productName4">product</span> is carefully selected for its exceptional freshness and nutritional value. Rich in essential vitamins and minerals, it's an excellent addition to your healthy lifestyle.</p>
+                    
+                    <p>Use it in your favorite recipes, as a healthy snack, or as an ingredient in creative dishes. This versatile product encourages you to experiment with new flavors and cooking techniques.</p>
+                    
+                    <p>Our <span id="productName2">product</span> has gained popularity among health-conscious consumers and has been featured in various cooking blogs and nutritional guides.</p>
+                    
+                    <h4>QUALITY: PREMIUM FRESH</h4>
+                    
+                    <h4>STORAGE INSTRUCTIONS:</h4>
+                    <p>Store in a cool, dry place. For maximum freshness, refrigerate after opening or as recommended on packaging.</p>
+                    
+                    <p>ALLERGEN INFORMATION: Please check product packaging for specific allergen details. May contain traces of nuts, dairy, or other common allergens.</p>
+                    
+                    <p>FRESHNESS GUARANTEE: We ensure all products meet our high standards for quality and freshness.</p>
+                </div>
+                
+                <div id="reviews" class="tab-pane">
+                    <div class="review">
+                        <div class="review-header">
+                            <span>Sarah M.</span>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                        <p>Excellent quality! Fresh and exactly what I expected. Will definitely order again.</p>
+                    </div>
+                    
+                    <div class="review">
+                        <div class="review-header">
+                            <span>Raj P.</span>
+                            <div class="review-stars">★★★★☆</div>
+                        </div>
+                        <p>Good product, fast delivery. The <span id="productName2">product</span> was fresh and tasty.</p>
+                    </div>
+                </div>
+                
+                <div id="videos" class="tab-pane">
+                    <p>No videos available for this product yet.</p>
+                </div>
+                
+                <div id="comments" class="tab-pane">
+                    <p>No comments yet. Be the first to leave a comment!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="footer-container"></div>
+    <script src="js/layout.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>

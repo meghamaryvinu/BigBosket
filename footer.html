@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        .footer{
+            width:100%;
+        }
+
+        .footer-top{
+            background:#edf1ee;
+            display:flex;
+            gap:120px;
+            padding:50px 150px;
+        }
+
+        .footer-column{
+            display:flex;
+            flex-direction:column;
+        }
+
+        .footer-column h3{
+            color:#1f4d3c;
+            margin-bottom:20px;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .footer-column a{
+            text-decoration:none;
+            color:#666;
+            font-size:18px;
+            margin-bottom:15px;
+            transition:0.3s;
+        }
+
+        .footer-column a:hover{
+            color:#1f4d3c;
+        }
+
+        .footer-bottom{
+            background:#1f4d3c;
+            padding:25px 70px;
+            display:flex;
+            gap:35px;
+            align-items:center;
+        }
+
+        .footer-bottom a{
+            color:white;
+            font-size:28px;
+            transition:0.3s;
+        }
+
+        .footer-bottom a:hover{
+            transform:scale(1.15);
+        }
+
+        @media(max-width:768px){
+            .footer-top{
+                flex-direction:column;
+                gap:40px;
+                padding:40px;
+            }
+
+            .footer-bottom{
+                justify-content:center;
+                flex-wrap:wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<footer class="footer">
+
+    <div class="footer-top">
+
+        <div class="footer-column">
+            <h3>LINKS</h3>
+
+            <a href="about.html">About us</a>
+            <a href="contact.html">Contact us</a>
+            <a href="#">Customer Service</a>
+            <a href="#">FAQs</a>
+            <a href="#">Sitemap</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>INFORMATION</h3>
+
+            <a href="#">Terms of Service</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Press</a>
+        </div>
+
+    </div>
+
+ <div class="footer-bottom">
+    <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://pinterest.com" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
+    <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+</div>
+
+</footer>
+
+</body>
+</html>

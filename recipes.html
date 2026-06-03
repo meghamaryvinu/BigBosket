@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipes - Big Bosket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+        .hero-section{
+            background: #0c3321;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-section h1{
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-section p{
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        .recipes-container{
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .recipe-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .recipe-card{
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .recipe-card img{
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .recipe-content{
+            padding: 15px;
+        }
+
+        .recipe-content h3{
+            color: #0c3321;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .recipe-meta{
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .recipe-content p{
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .recipe-button{
+            background: #1f4d3c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .recipe-button:hover{
+            background: #0c3321;
+        }
+
+
+        @media (max-width: 768px){
+            .hero-section h1{
+                font-size: 2rem;
+            }
+            
+            .recipe-grid{
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="body">
+    <div id="header-container"></div>
+    <script src="header.html"></script>
+    <script src="js/search.js"></script>
+    <script src="js/wishlist-utils.js"></script>
+    <script src="js/cart-utils.js"></script>
+    <script src="js/layout.js"></script>
+
+    <section class="hero-section">
+        <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Recipes</h1>
+        <p>Simple and delicious recipes using fresh ingredients</p>
+    </section>
+
+    <div class="recipes-container">
+        <div class="recipe-grid" id="recipeGrid">
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+    <script src="js/layout.js"></script>
+
+    <script>
+        const recipes = [
+            {
+                id: 1,
+                title: "Fresh Apple Salad",
+                category: "snacks",
+                time: "15 min",
+                difficulty: "Easy",
+                image: "public/apple.jpg",
+                description: "A refreshing apple salad with mixed greens and honey dressing."
+            },
+            {
+                id: 2,
+                title: "Banana Smoothie Bowl",
+                category: "breakfast",
+                time: "10 min",
+                difficulty: "Easy",
+                image: "public/banana.jpg",
+                description: "Creamy banana smoothie bowl topped with fresh fruits."
+            },
+            {
+                id: 3,
+                title: "Orange Glazed Chicken",
+                category: "dinner",
+                time: "45 min",
+                difficulty: "Medium",
+                image: "public/orange.jpg",
+                description: "Juicy chicken glazed with fresh orange juice and herbs."
+            },
+            {
+                id: 4,
+                title: "Tomato Basil Pasta",
+                category: "lunch",
+                time: "30 min",
+                difficulty: "Easy",
+                image: "public/tomato.jpg",
+                description: "Classic pasta with fresh tomatoes and basil."
+            },
+            {
+                id: 5,
+                title: "Crispy Potato Wedges",
+                category: "snacks",
+                time: "35 min",
+                difficulty: "Easy",
+                image: "public/potato.jpg",
+                description: "Golden crispy potato wedges with herbs and spices."
+            },
+            {
+                id: 6,
+                title: "Cheese Sandwich",
+                category: "breakfast",
+                time: "10 min",
+                difficulty: "Easy",
+                image: "public/cheese.jpg",
+                description: "Grilled cheese sandwich with melted cheese."
+            }
+        ];
+
+        function displayRecipes(recipeList) {
+            const grid = document.getElementById('recipeGrid');
+            grid.innerHTML = '';
+            
+            recipeList.forEach(recipe => {
+                grid.innerHTML += `
+                    <div class="recipe-card">
+                        <img src="${recipe.image}" alt="${recipe.title}">
+                        <div class="recipe-content">
+                            <h3>${recipe.title}</h3>
+                            <div class="recipe-meta">
+                                ${recipe.time} | ${recipe.difficulty}
+                            </div>
+                            <p>${recipe.description}</p>
+                            <button class="recipe-button" onclick="viewRecipe(${recipe.id})">
+                                View Recipe
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function viewRecipe(id) {
+            alert('Recipe details coming soon!');
+        }
+
+        displayRecipes(recipes);
+    </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wishlist - Big Bosket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+
+        .page-header{
+            background: #0c3321;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .page-header h1{
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header p{
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        #wishlistContainer{
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card{
+            width: 280px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .card:hover{
+            transform: translateY(-8px);
+        }
+
+        .card img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3{
+            margin: 15px 0 10px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .card p{
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .card .price{
+            color: #2e7d32;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .card .rating{
+            color: #ffb300;
+            font-weight: bold;
+        }
+
+        .remove-btn{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .remove-btn:hover{
+            background: #cc3333;
+        }
+
+        .empty-wishlist{
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-wishlist h2{
+            color: #0c3321;
+            margin-bottom: 20px;
+        }
+
+        .shop-btn{
+            background: #1f4d3c;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .shop-btn:hover{
+            background: #0c3321;
+        }
+
+        @media (max-width: 768px){
+            .page-header h1{
+                font-size: 2rem;
+            }
+
+            #wishlistContainer{
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .card{
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="body">
+    <div id="header-container"></div>
+    <script src="js/search.js"></script>
+    <script src="js/cart-utils.js"></script>
+    <script src="js/layout.js"></script>
+
+    <section class="page-header">
+        <h1>My Wishlist</h1>
+        <p>Your favorite products saved for later</p>
+    </section>
+
+    <div id="wishlistContainer"></div>
+
+    <div id="footer-container"></div>
+    <script src="js/layout.js"></script>
+
+    <script>
+        function displayWishlist() {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const container = document.getElementById('wishlistContainer');
+            
+            if (wishlist.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-wishlist">
+                        <h2>Your wishlist is empty</h2>
+                        <p>Add some products you love to see them here!</p>
+                        <a href="products.html" class="shop-btn">Start Shopping</a>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = '';
+            
+            wishlist.forEach((product, index) => {
+                container.innerHTML += `
+                    <div class="card">
+                        <button class="remove-btn" onclick="removeFromWishlist(${index})" title="Remove from wishlist">
+                            ×
+                        </button>
+                        <div onclick="openProduct(${product.id})" style="cursor: pointer;">
+                            <img src="${product.image}" alt="${product.name}">
+                            <h3>${product.name}</h3>
+                            <p style="font-size:14px">${product.quantity}</p>
+                            <p class="price">₹${product.price}</p>
+                            <p class="rating">⭐ ${product.rating}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function removeFromWishlist(index) {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist.splice(index, 1);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            displayWishlist();
+            updateWishlistCount();
+        }
+
+        function openProduct(id) {
+            localStorage.setItem('selectedProduct', id);
+            window.location.href = 'product-detail.html';
+        }
+
+        function updateWishlistCount() {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const countElements = document.querySelectorAll('#wishlistCount');
+            countElements.forEach(element => {
+                element.innerText = wishlist.length;
+            });
+        }
+
+        displayWishlist();
+    </script>
+</body>
+</html>
