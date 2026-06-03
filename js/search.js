@@ -1,5 +1,3 @@
-// Global search functionality
-
 function toggleSearch() {
     const searchBox = document.getElementById('searchBox');
     const searchInput = document.getElementById('searchInput');
