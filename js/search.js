@@ -31,9 +31,7 @@ function performSearch(searchTerm) {
     window.location.href = 'products.html';
 }
 
-// Set up search functionality when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Add Enter key support for search
     setTimeout(() => {
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
@@ -43,5 +41,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
-    }, 100); // Small delay to ensure header is loaded
+    }, 100); 
 });
