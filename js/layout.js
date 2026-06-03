@@ -42,11 +42,9 @@ async function loadHeader() {
         const headerContainer = document.getElementById("header-container");
         headerContainer.innerHTML = html;
         
-        // Ensure the header container itself doesn't interfere with sticky
         headerContainer.style.position = 'relative';
         headerContainer.style.zIndex = '999';
         
-        // Force a reflow to ensure styles are applied
         headerContainer.offsetHeight;
         
         updateCartCount();
