@@ -1,4 +1,3 @@
-// Wishlist utility functions
 
 function getWishlist() {
     return JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -16,9 +15,9 @@ function addToWishlist(product) {
     if (!exists) {
         wishlist.push(product);
         saveWishlist(wishlist);
-        return true; // Added successfully
+        return true; 
     }
-    return false; // Already exists
+    return false;
 }
 
 function removeFromWishlist(productId) {
@@ -43,14 +42,13 @@ function updateWishlistCount() {
 function toggleWishlist(product) {
     if (isInWishlist(product.id)) {
         removeFromWishlist(product.id);
-        return false; // Removed
+        return false; 
     } else {
         addToWishlist(product);
-        return true; // Added
+        return true; 
     }
 }
 
-// Initialize wishlist count when page loads
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(updateWishlistCount, 100);
 });
